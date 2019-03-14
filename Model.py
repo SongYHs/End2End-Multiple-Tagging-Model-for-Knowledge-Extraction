@@ -216,7 +216,7 @@ def train_e2e_model(eelstmfile, modelfile,resultdir,cell,npochos,
             resultfile = resultdir+"result-all"+str(saveepoch)
             print('Result of All testdata')
             P, R, F= test_model(nn_model, testdata, target_idex_word,sourc_idex_word,resultfile,rfile=resultdir+"triplet"+str(saveepoch)+'.json')
-            prf.append(P,R,F)
+            prf.append([P,R,F])
             if F>=maxF:
                 save_model(nn_model, modelfile.split('.pkl')[0]+str(saveepoch)+'.pkl')
         print('epoch '+str(epoch-1)+' costs time:'+str(time.time()-t)+'s')
